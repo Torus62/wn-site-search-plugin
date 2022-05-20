@@ -8,7 +8,7 @@ use DB;
 use Illuminate\Database\Eloquent\Collection;
 use Skripteria\Sitesearch\Classes\Result;
 use Skripteria\Sitesearch\Models\Settings;
-use RainLab\Blog\Models\Post;
+use Winter\Blog\Models\Post;
 use Throwable;
 
 /**
@@ -196,7 +196,7 @@ class WinterBlogResultsProvider extends ResultsProvider
      */
     public function identifier()
     {
-        return 'RainLab.Blog';
+        return 'Winter.Blog';
     }
 
     /**
