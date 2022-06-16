@@ -12,7 +12,7 @@ class QueryLog extends Model
 
     public $timestamps = false;
 
-    public $table = 'winter_sitesearch_query_logs';
+    public $table = 'skripteria_sitesearch_query_logs';
     public $fillable = [
         'query',
         'domain',
