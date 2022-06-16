@@ -165,6 +165,6 @@ class WinterPagesResultsProvider extends ResultsProvider
      */
     public function identifier()
     {
-        return 'RainLab.Pages';
+        return 'Winter.Pages';
     }
 }

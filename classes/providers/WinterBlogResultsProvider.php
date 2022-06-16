@@ -196,7 +196,7 @@ class WinterBlogResultsProvider extends ResultsProvider
      */
     public function identifier()
     {
-        return 'Winter.Blog';
+        return 'Torus.Blog';
     }
 
     /**
