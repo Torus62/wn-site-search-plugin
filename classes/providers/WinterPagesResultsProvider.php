@@ -30,8 +30,13 @@ class WinterPagesResultsProvider extends ResultsProvider
             // Make this result more relevant, if the query is found in the title
             $title     = $page->viewBag['meta_title'] ?? $page->viewBag['title'] ?? '';
             $description = $page->viewBag['meta_description'] ?? '';
+            $isFeatured = $page->viewBag['isFeatured'] ?? false;
+
             $relevance = $this->containsQuery($title) ? 2 : 1;
             $relevance += $this->containsQuery($description) ? 1 : 0;
+            if ($isFeatured) {
+                $relevance += 3;
+            }
 
             $result        = new Result($this->query, $relevance);
             $result->title = $title;
