@@ -29,7 +29,9 @@ class WinterPagesResultsProvider extends ResultsProvider
         foreach ($this->pages() as $page) {
             // Make this result more relevant, if the query is found in the title
             $title     = $page->viewBag['meta_title'] ?? $page->viewBag['title'] ?? '';
+            $description = $page->viewBag['meta_description'] ?? '';
             $relevance = $this->containsQuery($title) ? 2 : 1;
+            $relevance += $this->containsQuery($description) ? 1 : 0;
 
             $result        = new Result($this->query, $relevance);
             $result->title = $title;
