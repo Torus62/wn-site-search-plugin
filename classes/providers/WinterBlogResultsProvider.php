@@ -4,6 +4,7 @@ namespace Skripteria\Sitesearch\Classes\Providers;
 
 use Carbon\Carbon;
 use Cms\Classes\Controller;
+use Config;
 use DB;
 use Illuminate\Database\Eloquent\Collection;
 use Skripteria\Sitesearch\Classes\Result;
@@ -150,7 +151,12 @@ class WinterBlogResultsProvider extends ResultsProvider
      */
     protected function defaultModelQuery()
     {
-        return Post::isPublished()->with(['featured_images']);
+        $environment = Config::getEnvironment();
+        $query = Post::isPublished()->with(['featured_images']);
+        if ($environment !== 'core') {
+            $query->where('brand', $environment);
+        }
+        return $query;
     }
 
     /**
