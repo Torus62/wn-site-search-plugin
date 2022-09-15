@@ -79,6 +79,10 @@ class WinterBlogResultsProvider extends ResultsProvider
                 $result->url = $this->getUrl($post);
             }
 
+            // Ignore the above, some funky URL generation is preventing absolute links from generating properly
+            // use the Post model's default URL
+            $result->url = $post->url;
+
             $result->thumb = $this->getThumb($post->featured_images);
 
             $this->addResult($result);
